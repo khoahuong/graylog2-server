@@ -20,10 +20,11 @@ import styled, { css } from 'styled-components';
 import { IconButton } from 'components/common';
 
 const SectionContainer = styled.div(({ theme }) => css`
+  display: flex;
   background-color: ${theme.colors.variant.lightest.default};
   border-radius: 3px;
   margin-bottom: 5px;
-  padding: 6px 6px 3px 6px;
+  padding: 6px 5px 3px 5px;
 
   :last-of-type {
     border-bottom: 0;
@@ -31,9 +32,15 @@ const SectionContainer = styled.div(({ theme }) => css`
   }
 `);
 
-const Header = styled.div`
+const SectionActions = styled.div`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
+  min-width: 25px;
+  margin-left: 3px;
+`;
+
+const SectionConfiguration = styled.div`
+  flex: 1;
 `;
 
 type Props = {
@@ -43,11 +50,12 @@ type Props = {
 
 const ElementConfigurationSection = ({ children, onRemove }: Props) => (
   <SectionContainer>
-    <Header>{
-      onRemove && <IconButton onClick={onRemove} name="trash" title="Remove" />
-    }
-    </Header>
-    {children}
+    <SectionConfiguration>
+      {children}
+    </SectionConfiguration>
+    <SectionActions>
+      {onRemove && <IconButton onClick={onRemove} name="trash" title="Remove" />}
+    </SectionActions>
   </SectionContainer>
 );
 
