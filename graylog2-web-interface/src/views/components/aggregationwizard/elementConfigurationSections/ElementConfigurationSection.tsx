@@ -56,7 +56,6 @@ const Wrapper = styled.div(({ theme }) => css`
 
   .checkbox {
     min-height: auto;
-    padding-top: 0;
   }
 `);
 
