@@ -191,7 +191,7 @@ const GroupByElement: AggregationElement = {
       ],
     },
   }),
-  removeElementSection: ((index, formValues) => ({
+  removeElement: ((index, formValues) => ({
     ...formValues,
     groupBy: {
       columnRollup: 'columnRollup' in formValues.groupBy ? formValues.groupBy.columnRollup : true,
