@@ -46,10 +46,12 @@ const Wrapper = styled.div(({ theme }) => css`
     padding-top: 5px;
     font-weight: normal;
     text-align: left;
+    hyphens: auto;
   }
 
   .help-block {
     margin: 0;
+    hyphens: auto;
   }
 `);
 
