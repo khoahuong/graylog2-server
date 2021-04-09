@@ -61,7 +61,8 @@ const barChart: VisualizationType = {
         return (
           <ul>
             {Object.values(options).map(({ label, help }) => (
-              <li key={label}><h4>{label}</h4>
+              <li key={label}>
+                <h4>{label}</h4>
                 {help}
               </li>
             ))}
