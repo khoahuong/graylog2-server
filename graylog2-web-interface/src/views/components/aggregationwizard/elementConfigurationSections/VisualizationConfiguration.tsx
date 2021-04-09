@@ -27,7 +27,7 @@ import VisualizationConfigurationOptions from 'views/components/aggregationwizar
 import { WidgetConfigFormValues } from 'views/components/aggregationwizard/WidgetConfigForm';
 import { TIMESTAMP_FIELD } from 'views/Constants';
 
-import ElementConfigurationSection from './ElementConfigurationSection';
+import ElementConfigurationContainer from './ElementConfigurationContainer';
 
 const isTimeline = (values: WidgetConfigFormValues) => {
   if (!values.groupBy?.groupings || values.groupBy.groupings.length === 0) {
@@ -64,7 +64,7 @@ const VisualizationConfiguration = () => {
   const isTimelineChart = isTimeline(values);
 
   return (
-    <ElementConfigurationSection>
+    <ElementConfigurationContainer>
       <Field name="visualization.type">
         {({ field: { name, value }, meta: { error } }) => (
           <Input id="visualization-type-select"
@@ -101,7 +101,7 @@ const VisualizationConfiguration = () => {
 
       )}
       <VisualizationConfigurationOptions name="visualization.config" fields={currentVisualizationType.config?.fields ?? []} />
-    </ElementConfigurationSection>
+    </ElementConfigurationContainer>
   );
 };
 
