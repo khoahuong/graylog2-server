@@ -97,7 +97,7 @@ const VisualizationElement: AggregationElement = {
   key: 'visualization',
   order: 4,
   allowAddEmptyElement: (formValues: WidgetConfigFormValues) => isEmpty(formValues.visualization),
-  sectionComponent: VisualizationConfiguration,
+  configurationSectionComponent: VisualizationConfiguration,
   fromConfig,
   toConfig,
   validate,
