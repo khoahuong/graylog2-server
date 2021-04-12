@@ -24,11 +24,14 @@ type BarVisualizationConfigFormValues = {
   barmode: 'group' | 'stack' | 'relative' | 'overlay',
 };
 
+const DEFAULT_BARMODE: BarVisualizationConfigFormValues['barmode'] = 'group';
+
 const barChart: VisualizationType = {
   type: BarVisualization.type,
   displayName: 'Bar Chart',
   component: BarVisualization,
   config: {
+    createConfig: (): BarVisualizationConfigFormValues => ({ barmode: DEFAULT_BARMODE }),
     fromConfig: (config: BarVisualizationConfig | undefined): BarVisualizationConfigFormValues => ({ barmode: config?.barmode ?? 'group' }),
     toConfig: (formValues: BarVisualizationConfigFormValues): BarVisualizationConfig => BarVisualizationConfig.create(formValues.barmode),
     fields: [{

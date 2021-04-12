@@ -23,11 +23,14 @@ type LineVisualizationConfigFormValues = {
   interpolation: 'linear' | 'step-after' | 'spline';
 };
 
+const DEFAULT_INTERPOLATION: LineVisualizationConfigFormValues['interpolation'] = 'linear';
+
 const lineChart: VisualizationType = {
   type: LineVisualization.type,
   displayName: 'Line Chart',
   component: LineVisualization,
   config: {
+    createConfig: (): LineVisualizationConfigFormValues => ({ interpolation: DEFAULT_INTERPOLATION }),
     fromConfig: (config: LineVisualizationConfig | undefined): LineVisualizationConfigFormValues => ({ interpolation: config?.interpolation }),
     toConfig: (formValues: LineVisualizationConfigFormValues): LineVisualizationConfig => LineVisualizationConfig.create(formValues.interpolation),
     fields: [{
