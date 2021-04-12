@@ -31,6 +31,7 @@ import { Result } from 'views/components/widgets/Widget';
 import { Widgets } from 'views/stores/WidgetStore';
 import { OverrideProps } from 'views/components/WidgetOverrideElements';
 import { VisualizationConfigDefinition, VisualizationConfigFormValues } from 'views/components/aggregationwizard/WidgetConfigForm';
+import VisualizationConfig from 'views/logic/aggregationbuilder/visualizations/VisualizationConfig';
 
 interface EditWidgetComponentProps<Config extends WidgetConfig = WidgetConfig> {
   children: React.ReactNode,
@@ -111,11 +112,11 @@ type NumericField = BaseRequiredField & {
 
 type ConfigurationField = SelectField | BooleanField | NumericField;
 
-interface VisualizationType {
+interface VisualizationType<ConfigType extends VisualizationConfig = VisualizationConfig, ConfigFormValuesType extends VisualizationConfigFormValues = VisualizationConfigFormValues> {
   type: string;
   displayName: string;
   component: VisualizationComponent;
-  config?: VisualizationConfigDefinition;
+  config?: VisualizationConfigDefinition<ConfigType, ConfigFormValuesType>;
 }
 
 interface ResultHandler<T, R> {
